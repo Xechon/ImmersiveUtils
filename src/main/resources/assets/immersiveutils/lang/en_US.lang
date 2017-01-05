@@ -1,0 +1,56 @@
+tile.Eclogite.name=Eclogite
+tile.Komatiite.name=Komatiite
+tile.Anthracite.name=Anthracite
+tile.Breccia.name=Breccia
+tile.Lamprophyre.name=Lamprophyre
+
+tile.StoneCobble.Eclogite.name=Eclogite Cobblestone
+tile.StoneCobble.Komatiite.name=Komatiite Cobblestone
+
+tile.SmoothStone.Eclogite.name=Smooth Eclogite
+tile.SmoothStone.Komatiite.name=Smooth Komatiite
+
+tile.StoneBrick.Eclogite.name=Eclogite Bricks
+tile.StoneBrick.Komatiite.name=Komatiite Bricks
+
+tile.WallCobble.Eclogite.name=Eclogite Cobblestone Wall
+tile.WallCobble.Komatiite.name=Komatiite Cobblestone Wall
+
+tile.WallEclogite.name=Eclogite Wall
+tile.WallKomatiite.name=Komatiite Wall
+
+tile.WallSmooth.Eclogite.name=Eclogite Smooth Wall
+tile.WallSmooth.Komatiite.name=Komatiite Smooth Wall
+
+tile.WallBrick.Eclogite.name=Eclogite Brick Wall
+tile.WallBrick.Komatiite.name=Komatiite Brick Wall
+
+item.LooseRock.Eclogite.name=Eclogite Rock
+item.LooseRock.Komatiite.name=Komatiite Rock
+
+item.ItemStoneBrick.Eclogite.name=Eclogite Brick
+item.ItemStoneBrick.Komatiite.name=Komatiite Brick
+
+item.FoodRation.name=Food Rations
+
+ItemSoil.tooltip.Andesite=Andesite
+ItemSoil.tooltip.Basalt=Basalt
+ItemSoil.tooltip.Chalk=Chalk
+ItemSoil.tooltip.Chert=Chert
+ItemSoil.tooltip.Claystone=Claystone
+ItemSoil.tooltip.Conglomerate=Conglomerate
+ItemSoil.tooltip.Dacite=Dacite
+ItemSoil.tooltip.Diorite=Diorite
+ItemSoil.tooltip.Dolomite=Dolomite
+ItemSoil.tooltip.Gabbro=Gabbro
+ItemSoil.tooltip.Gneiss=Gneiss
+ItemSoil.tooltip.Granite=Granite
+ItemSoil.tooltip.Limestone=Limestone
+ItemSoil.tooltip.Marble=Marble
+ItemSoil.tooltip.Phyllite=Phyllite
+ItemSoil.tooltip.Quartzite=Quartzite
+ItemSoil.tooltip.Rhyolite=Rhyolite
+ItemSoil.tooltip.Rock Salt=Rock Salt
+ItemSoil.tooltip.Schist=Schist
+ItemSoil.tooltip.Shale=Shale
+ItemSoil.tooltip.Slate=Slate
