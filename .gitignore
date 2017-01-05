@@ -17,3 +17,8 @@
 /.project
 /bin
 /libs
+
+## idea
+*.iml
+*.iws
+*.ipr
