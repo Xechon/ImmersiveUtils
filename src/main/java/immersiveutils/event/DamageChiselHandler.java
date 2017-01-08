@@ -14,8 +14,10 @@ import java.util.ArrayList;
  */
 public class DamageChiselHandler {
 	@SubscribeEvent
-	void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
+	public void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
+		System.out.println("The event works.");
 		if (event.craftMatrix != null) {
+			System.out.println("So does this.");
 			// Tool Damaging
 			if (event.crafting.getItem() == ModItems.stoneBrick) {
 				ArrayList<ItemStack> chisels = (ArrayList<ItemStack>) OreDictionary.getOres("itemChisel", false);

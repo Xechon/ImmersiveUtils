@@ -4,6 +4,7 @@ package immersiveutils;
 import com.bioxx.tfc.api.TFCItems;
 import com.bioxx.tfc.api.Tools.ChiselManager;
 import com.bioxx.tfc.api.Tools.ChiselMode;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -44,6 +45,7 @@ public class ImmersiveUtilsMod {
 		MinecraftForge.EVENT_BUS.register(new DamageChiselHandler());
 		MinecraftForge.EVENT_BUS.register(new DisableMobSpawnHandler());
 		MinecraftForge.EVENT_BUS.register(new LocalizeTFCTooltipHandler());
+		FMLCommonHandler.instance().bus().register(new DamageChiselHandler());
 	}
 	
 	@Mod.EventHandler void init(FMLInitializationEvent event) {
@@ -73,6 +75,11 @@ public class ImmersiveUtilsMod {
 				new ItemStack(ModBlocks.eclogite, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.wallKomatiite, 3, 0), "RRR", "RRR", 'R',
 				new ItemStack(ModBlocks.komatiite, 1, 0));
+		
+		MinecraftForge.EVENT_BUS.register(new DamageChiselHandler());
+		MinecraftForge.EVENT_BUS.register(new DisableMobSpawnHandler());
+		MinecraftForge.EVENT_BUS.register(new LocalizeTFCTooltipHandler());
+		FMLCommonHandler.instance().bus().register(new DamageChiselHandler());
 		
 		if(Loader.isModLoaded("Waila"))
 			FMLInterModComms.sendMessage("Waila", "register", "immersiveutils.WailaPatch.callbackRegister");

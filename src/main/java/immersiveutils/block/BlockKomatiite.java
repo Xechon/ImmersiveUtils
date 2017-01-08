@@ -23,14 +23,22 @@ public class BlockKomatiite extends BlockUltramaficStone {
 	@Override
 	ItemStack dropGem(Random random, int meta) {
 		Item item = null;
+		int rand;
 		
-		int rand = random.nextInt(2);
-		if(rand == 0) {
-			item = TFCItems.gemDiamond;
-		} else {item = TFCItems.gemTourmaline;}
-		
-		if(item != null && meta != -1) {
-			return new ItemStack(item, 1, meta);
+		rand = random.nextInt(100);
+		if(rand < 10) {
+			rand = random.nextInt(100);
+			if (rand < 5) {
+				item = TFCItems.gemDiamond;
+			} else if(rand < 40){
+				item = TFCItems.gemAgate;
+			} else{
+				item = TFCItems.gemTourmaline;
+			}
+			
+			if (item != null && meta != -1) {
+				return new ItemStack(item, 1, meta);
+			}
 		}
 		return null;
 	}

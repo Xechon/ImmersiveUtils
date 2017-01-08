@@ -11,7 +11,8 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
  */
 public class LocalizeTFCTooltipHandler {
 	@SubscribeEvent
-	void onTooltip(ItemTooltipEvent event) {
+	public void onTooltip(ItemTooltipEvent event) {
+		System.out.println("Tooltip lolz");
 		if(event.itemStack.getItem() instanceof ItemSoil && event.toolTip.size() > 2) {
 			event.toolTip.set(2, StatCollector.translateToLocal("ItemSoil.tooltip." +
 					Global.STONE_ALL[event.itemStack.getItemDamageForDisplay()]));

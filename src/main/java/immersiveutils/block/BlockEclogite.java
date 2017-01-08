@@ -22,23 +22,23 @@ public class BlockEclogite extends BlockUltramaficStone {
 	
 	@Override
 	ItemStack dropGem(Random random, int meta) {
-		Item item = null;
-		
-		if(meta == StoneType.Eclogite.ordinal()){
-			item = TFCItems.gemDiamond;
-			int rand = random.nextInt(10);
-			if(rand < 9) {
+		Item item = TFCItems.gemDiamond;
+		int rand;
+		rand = random.nextInt(100);
+		if(rand < 10) {
+			rand = random.nextInt(10);
+			if (rand < 9) {
 				item = TFCItems.gemGarnet;
 			}
-			if(rand < 6) {
+			if (rand < 6) {
 				item = TFCItems.gemRuby;
 			}
-			if(rand < 3) {
+			if (rand < 3) {
 				item = TFCItems.gemSapphire;
 			}
 		}
 		
-		if(item != null && meta != -1) {
+		if(item != null) {
 			return new ItemStack(item, 1, meta);
 		}
 		return null;

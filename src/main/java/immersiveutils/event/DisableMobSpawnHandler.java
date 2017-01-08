@@ -9,7 +9,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
  */
 public class DisableMobSpawnHandler {
 	@SubscribeEvent
-	void onMobSpawn(EntityJoinWorldEvent event) {
+	public void onMobSpawn(EntityJoinWorldEvent event) {
 		if(event.entity != null && !(event.entity instanceof EntityPlayer)) {
 			event.world.removeEntity(event.entity);
 			event.setCanceled(true);
