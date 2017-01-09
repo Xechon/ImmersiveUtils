@@ -16,7 +16,7 @@ public class BlockAnthracite extends BlockUltramaficStone {
 	
 	@Override
 	public int quantityDropped(Random rand) {
-		return rand.nextInt(3);
+		return rand.nextInt(3)+ 1;
 	}
 	
 	@Override

@@ -35,7 +35,7 @@ import java.util.List;
 		"required-after:terrafirmacraft")
 public class ImmersiveUtilsMod {
 	public static final String MOD_ID = "immersiveutils";
-	public static final String VERSION = "0.0.3";
+	public static final String VERSION = "0.0.5";
 	
 	public static Logger logger;
 	

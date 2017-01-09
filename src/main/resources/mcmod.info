@@ -1,14 +1,11 @@
-{
-  "modListVersion": 2,
-  "modList": [{
+[{
     "modid": "immersiveutils",
     "name": "Immersive Utils",
     "description": "TFC Companion mod for the ImmersiveTFC modpack.",
-    "version": "${version}",
-    "mcversion": "${minecraft_version}",
+    "version": "0.0.5",
+    "mcversion": "1.7.10",
     "authorList": [ "Xechon" ],
     "requiredMods": ["terrafirmacraft"],
     "dependencies": ["Forge@[10.13.4.1448,)"],
     "useDependencyInformation": "true"
-  }]
-}
+}]
