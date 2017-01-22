@@ -7,6 +7,7 @@ import com.bioxx.tfc.Items.ItemTerra;
 import com.bioxx.tfc.TerraFirmaCraft;
 import com.bioxx.tfc.api.Enums.EnumFoodGroup;
 import com.bioxx.tfc.api.Food;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
@@ -70,5 +71,10 @@ public class ItemFoodRation extends ItemFoodTFC{
 			TerraFirmaCraft.LOG.error(TFC_Core.translate("error.error") + " " + itemStack.getDisplayName() + " " +
 			TFC_Core.translate("error.NBT") + " " + TFC_Core.translate("error.Contact"));
 		}
+	}
+	
+	@Override
+	public void registerIcons(IIconRegister registerer) {
+		this.itemIcon = registerer.registerIcon("immersiveutils:" + this.textureFolder + "Food Ration");
 	}
 }

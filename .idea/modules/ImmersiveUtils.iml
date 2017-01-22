@@ -95,11 +95,45 @@
           <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TerraFirmaCraft-0.79.26.881.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TerraFirmaCraft-src-0.79.29.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="Gradle: codechicken:CodeChickenCore:1.7.10-1.0.4.35:dev" level="project" />
     <orderEntry type="library" exported="" name="Gradle: codechicken:NotEnoughItems:1.7.10-1.0.4.95:dev" level="project" />
     <orderEntry type="library" exported="" name="Gradle: mcp.mobius.waila:Waila:1.5.11-RC2-NONEI_1.7.10" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../libs/GalacticraftCore-1.7-3.0.12.464.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../libs/MicdoodleCore-1.7-3.0.12.464.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TFCTech-0.2.9-A14.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TFCTech-src-0.2.9-A14.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TFCTech-src-0.2.9-A14.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TFCTech-deobf-0.2.9-A14.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/[1.7.10]TFCTech-src-0.2.9-A14.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
