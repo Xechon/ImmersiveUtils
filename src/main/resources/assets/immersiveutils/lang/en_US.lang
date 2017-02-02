@@ -58,6 +58,8 @@ ItemSoil.tooltip.Slate=Slate
 key.GalacticraftInventory=Galacticraft Inventory
 
 item.MRE.name=MRE
+item.WoodAsh.name=Wood Ash
+
 item.MREWesternBeefDinner.name=MRE: Western Beef Dinner
 item.MREAsianSeafoodDinner.name=MRE: Asian Seafood Dinner
 item.MREHeartyBreakfast.name=MRE: Hearty Breakfast

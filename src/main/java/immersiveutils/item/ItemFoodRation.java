@@ -3,17 +3,17 @@ package immersiveutils.item;
 import com.bioxx.tfc.Core.Player.FoodStatsTFC;
 import com.bioxx.tfc.Core.TFC_Core;
 import com.bioxx.tfc.Food.ItemFoodTFC;
-import com.bioxx.tfc.Items.ItemTerra;
-import com.bioxx.tfc.TerraFirmaCraft;
+import com.bioxx.tfc.Render.Item.FoodItemRenderer;
 import com.bioxx.tfc.api.Enums.EnumFoodGroup;
 import com.bioxx.tfc.api.Food;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,32 +21,18 @@ import java.util.List;
  */
 public class ItemFoodRation extends ItemFoodTFC{
 	public ItemFoodRation() {
-		super(EnumFoodGroup.Dairy, 0, 0, 0, 0, 0, true, true);
+		super(EnumFoodGroup.None, 0, 0, 0, 0, 0, true, false);
 	}
 	
 	@Override
 	public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer player) {
-		FoodStatsTFC foodStats = TFC_Core.getPlayerFoodStats(player);
-		if(!world.isRemote && this.isEdible(itemStack) && itemStack.hasTagCompound()) {
-			float weight = Food.getWeight(itemStack);
-			float decay = Math.max(Food.getDecay(itemStack), 0);
-			float eatAmount = Math.min(weight - decay, 5f);
-			float stomachDiff = foodStats.stomachLevel + eatAmount - foodStats.getMaxStomach(foodStats.player);
-			if(stomachDiff > 0) eatAmount -= stomachDiff;
-			float tasteFactor = foodStats.getTasteFactor(itemStack);
-			addNutritionAll(foodStats, eatAmount, tasteFactor);
-			foodStats.stomachLevel += eatAmount*tasteFactor;
-			if(FoodStatsTFC.reduceFood(itemStack, eatAmount)) itemStack.stackSize = 0;
-		} else {
-			addNutritionAll(foodStats, 1, 1);
-			String error = TFC_Core.translate("error.error") + " " + itemStack.getDisplayName() + " " +
-					TFC_Core.translate("error.NBT") + " " + TFC_Core.translate("error.Contact");
-			TerraFirmaCraft.LOG.error(error);
-			TFC_Core.sendInfoMessage(player, new ChatComponentText(error));
+		if(!world.isRemote && this.isEdible(itemStack)) {
+			FoodStatsTFC foodstats = TFC_Core.getPlayerFoodStats(player);
+			//Add nutrition in all categories.
+			addNutritionAll(foodstats, Math.min(Food.getWeight(itemStack) - Math.max(Food.getDecay(itemStack), 0), 5f),
+					foodstats.getTasteFactor(itemStack));
 		}
-		world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat()*0.1F + 0.9F);
-		TFC_Core.setPlayerFoodStats(player, foodStats);
-		return itemStack;
+		return super.onEaten(itemStack, world, player);
 	}
 	
 	void addNutritionAll(FoodStatsTFC foodStats, float eatAmount, float tasteFactor){
@@ -57,24 +43,15 @@ public class ItemFoodRation extends ItemFoodTFC{
 		foodStats.addNutrition(EnumFoodGroup.Vegetable, eatAmount * tasteFactor);
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Override
-	public void addInformation(ItemStack itemStack, EntityPlayer player, List arraylist, boolean flag) {
-		 ArrayList<String> arrayList = (ArrayList<String>) arraylist;
-		ItemTerra.addSizeInformation(itemStack, arraylist);
-		
-		if(itemStack.hasTagCompound()) {
-			ItemFoodTFC.addFoodHeatInformation(itemStack, arraylist);
-			addFoodInformation(itemStack, player, arraylist);
-		}else {
-			arrayList.add(TFC_Core.translate("gui.badnbt"));
-			TerraFirmaCraft.LOG.error(TFC_Core.translate("error.error") + " " + itemStack.getDisplayName() + " " +
-			TFC_Core.translate("error.NBT") + " " + TFC_Core.translate("error.Contact"));
-		}
-	}
-	
 	@Override
 	public void registerIcons(IIconRegister registerer) {
 		this.itemIcon = registerer.registerIcon("immersiveutils:" + this.textureFolder + "Food Ration");
+		MinecraftForgeClient.registerItemRenderer(this, new FoodItemRenderer());
+	}
+	
+	@Override
+	public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
+		ItemStack stack = ItemFoodTFC.createTag(new ItemStack(item, 1), 5);
+		list.add(stack);
 	}
 }
