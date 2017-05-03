@@ -1,9 +1,16 @@
 package immersiveutils.init;
 
+import com.bioxx.tfc.Core.TFCTabs;
+import com.bioxx.tfc.api.HeatIndex;
+import com.bioxx.tfc.api.HeatRaw;
+import com.bioxx.tfc.api.HeatRegistry;
+import com.bioxx.tfc.api.TFCItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import immersiveutils.item.*;
 import immersiveutils.ref.StoneType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import static ua.pp.shurgent.tfctech.core.ModItems.*;
 
 /**
  * Created by Xechon on 1/1/2017.
@@ -73,7 +80,11 @@ public class ModItems {
 	public static Item smallTinDust = new ItemOreDust("Tin", 50).setUnlocalizedName("Small Tin Dust");
 	public static Item smallZincDust = new ItemOreDust("Zinc", 50).setUnlocalizedName("Small Zinc Dust");
 	
+	public static Item itemWireMold = new ItemMold().setUnlocalizedName("Wire Mold").setTextureName("Wire Mold").
+			setCreativeTab(TFCTabs.TFC_DEVICES);
+	
 	public static void register() {
+		GameRegistry.registerItem(itemWireMold, itemWireMold.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(foodRation, foodRation.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(looseRock, looseRock.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(stoneBrick, stoneBrick.getUnlocalizedName().substring(5));
@@ -137,5 +148,56 @@ public class ModItems {
 		//GameRegistry.registerItem(smallSterlingSilverDust, smallSterlingSilverDust.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(smallTinDust           , smallTinDust           .getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(smallZincDust          , smallZincDust          .getUnlocalizedName().substring(5));
+		
+		HeatRegistry manager = HeatRegistry.getInstance();
+		HeatRaw aluminumRaw = new HeatRaw(0.25, 660);
+		HeatRaw electrumRaw = new HeatRaw(0.5, 1012);
+		HeatRaw constantanRaw = new HeatRaw(0.45, 1260);
+		HeatRaw invarRaw = new HeatRaw(0.48, 1425);
+		HeatRaw redAlloyRaw = new HeatRaw(0.25, 1870);
+		
+		// TFC HeatRaw
+		HeatRaw bismuthRaw = new HeatRaw(0.14, 270);
+		HeatRaw bismuthBronzeRaw = new HeatRaw(0.35, 985);
+		HeatRaw blackBronzeRaw = new HeatRaw(0.35, 1070);
+		HeatRaw blackSteelRaw = new HeatRaw(0.35, 1485);
+		HeatRaw blueSteelRaw = new HeatRaw(0.35, 1540);
+		HeatRaw brassRaw = new HeatRaw(0.35, 930);
+		HeatRaw bronzeRaw = new HeatRaw(0.35, 950);
+		HeatRaw copperRaw = new HeatRaw(0.35, 1080);
+		HeatRaw goldRaw = new HeatRaw(0.6, 1060);
+		HeatRaw ironRaw = new HeatRaw(0.35, 1535);
+		HeatRaw leadRaw = new HeatRaw(0.22, 328);
+		HeatRaw nickelRaw = new HeatRaw(0.48, 1453);
+		HeatRaw pigIronRaw = new HeatRaw(0.35, 1500);
+		HeatRaw platinumRaw = new HeatRaw(0.35, 1730);
+		HeatRaw redSteelRaw = new HeatRaw(0.35, 1540);
+		HeatRaw roseGoldRaw = new HeatRaw(0.35, 960);
+		HeatRaw silverRaw = new HeatRaw(0.48, 961);
+		HeatRaw steelRaw = new HeatRaw(0.35, 1540);
+		HeatRaw sterlingSilverRaw = new HeatRaw(0.35, 900);
+		HeatRaw tinRaw = new HeatRaw(0.14, 230);
+		HeatRaw zincRaw = new HeatRaw(0.21, 420);
+		
+		manager.addIndex(new HeatIndex(new ItemStack(tinyAluminumDust,1), aluminumRaw, new ItemStack(aluminumUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallAluminumDust,1), aluminumRaw, new ItemStack(aluminumUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyBismuthDust,1), bismuthRaw, new ItemStack(TFCItems.bismuthUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallBismuthDust,1), bismuthRaw, new ItemStack(TFCItems.bismuthUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyCopperDust,1), copperRaw, new ItemStack(TFCItems.copperUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallCopperDust,1), copperRaw, new ItemStack(TFCItems.copperUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyGoldDust,1), goldRaw, new ItemStack(TFCItems.goldUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallGoldDust,1), goldRaw, new ItemStack(TFCItems.goldUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyLeadDust,1), leadRaw, new ItemStack(TFCItems.leadUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallLeadDust,1), leadRaw, new ItemStack(TFCItems.leadUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyNickelDust,1), nickelRaw, new ItemStack(TFCItems.nickelUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallNickelDust,1), nickelRaw, new ItemStack(TFCItems.nickelUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyPlatinumDust,1), platinumRaw, new ItemStack(TFCItems.platinumUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallPlatinumDust,1), platinumRaw, new ItemStack(TFCItems.platinumUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinySilverDust,1), silverRaw, new ItemStack(TFCItems.silverUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallSilverDust,1), silverRaw, new ItemStack(TFCItems.silverUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyTinDust,1), tinRaw, new ItemStack(TFCItems.tinUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallTinDust,1), tinRaw, new ItemStack(TFCItems.tinUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(tinyZincDust,1), zincRaw, new ItemStack(TFCItems.zincUnshaped,1)));
+		manager.addIndex(new HeatIndex(new ItemStack(smallZincDust,1), zincRaw, new ItemStack(TFCItems.zincUnshaped,1)));
 	}
 }
